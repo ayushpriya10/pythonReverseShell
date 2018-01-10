@@ -1,0 +1,11 @@
+-> Prompt breaks on using dir command. Needs additional Enter to get back.
+
+-> Prompt breaks on using more command. Displays incomplete data with "~$". Also needs additional Enter.
+
+-> Prompt doesn't displays response for dir. Requires additional Enter.
+
+-> Prompt breaks for "cls".
+
+-> Responses are delayed. Everything requires an additional Enter.
+
+-> Prompt breaks for empty responses. [FIXED]
