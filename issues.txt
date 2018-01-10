@@ -1,11 +1,11 @@
--> Prompt breaks on using dir command. Needs additional Enter to get back.
+-> Prompt breaks on commands with no output for response.
 
--> Prompt breaks on using more command. Displays incomplete data with "~$". Also needs additional Enter.
+-> Prompt breaks on using dir command. Needs additional Enter to get back. [FIXED]
 
--> Prompt doesn't displays response for dir. Requires additional Enter.
+-> Prompt breaks on using more command. Displays incomplete data with "~$". Also needs additional Enter. [FIXED]
 
--> Prompt breaks for "cls".
+-> Prompt breaks for "cls". [FIXED]
 
--> Responses are delayed. Everything requires an additional Enter.
+-> Responses are delayed. Everything requires an additional Enter. [FIXED]
 
 -> Prompt breaks for empty responses. [FIXED]

@@ -33,3 +33,6 @@ while True:
 		clientsocket.send(b"RESPOND NULL")
 	else:
 		clientsocket.send(command.encode("utf-8"))
+		output = clientsocket.recv(1024).decode("utf-8")
+		if output != "COMMAND EXCPETION.":
+			print(output)
