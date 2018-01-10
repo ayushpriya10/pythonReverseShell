@@ -1,4 +1,6 @@
--> Prompt breaks on commands with no output for response.
+-> Prompt breaks on commands with no output for response. [FIXED]
+
+-> Prompt breaks for non-existing commands. [FIXED]
 
 -> Prompt breaks on using dir command. Needs additional Enter to get back. [FIXED]
 

